@@ -1,32 +1,25 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./game_view.css";
+import { Block1 } from "./block1";
+import { Block2 } from "./block2";
+import { Round } from "./round";
 
 interface IGameViewProps {
     isStarted: boolean;
 }
 
 export function GameView({ isStarted }:IGameViewProps){
-    const blockRef = useRef<HTMLDivElement>();
     const wrapperRef = useRef<HTMLDivElement>();
     const [initPosition, setInitPosition] = useState(0);
-    
-    useEffect(()=>{
-        const wrapperBounds = wrapperRef.current.getBoundingClientRect();
-        const blockBounds = blockRef.current.getBoundingClientRect();
-        const relTop = ((blockBounds.top - wrapperBounds.height / 2) / blockBounds.height * 100);
-        console.log(wrapperBounds.height, blockBounds.top, relTop);
-        setInitPosition(relTop);
-    }, [isStarted]);
 
-    return <div className="game_wrapper" ref={wrapperRef}>
-        <div className="game_block1" ref={blockRef}>
-            1
+    return <div className="game_outher">
+        <div className="game_wrapper" ref={wrapperRef}>
+            <Block1 isStarted={isStarted} wrapperHeight={wrapperRef.current?.getBoundingClientRect().height} onShot={(pos)=>{
+                setInitPosition(pos);
+            }}></Block1>
+            <Block2></Block2>
+            {isStarted && <Round initPosition={initPosition}></Round>}
         </div>
-        <div className="game_block2">
-            2
-        </div>
-        {isStarted && <div className="game_round" style={{'--init-position': initPosition + '%'}}>
-            r
-        </div>}
     </div>
+        
 }
