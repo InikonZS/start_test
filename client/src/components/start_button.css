@@ -1,0 +1,19 @@
+.start_button {
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    color: white;
+    background-color: black;
+    border: none;
+}
+
+.start_button:hover {
+    border-radius: 20px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    color: white;
+    background-color: #222;
+    border: none;
+}
