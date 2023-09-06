@@ -12,8 +12,8 @@ export function GameView({ isStarted }:IGameViewProps){
     const wrapperRef = useRef<HTMLDivElement>();
     const [initPosition, setInitPosition] = useState(0);
 
-    return <div className="game_outher">
-        <div className="game_wrapper" ref={wrapperRef}>
+    return <div className="game_outher" ref={wrapperRef}>
+        <div className="game_wrapper">
             <Block1 isStarted={isStarted} wrapperHeight={wrapperRef.current?.getBoundingClientRect().height} onShot={(pos)=>{
                 setInitPosition(pos);
             }}></Block1>

@@ -1,5 +1,5 @@
 import React from "react";
-
+import "./start_button.css";
 interface IStartButtonProps {
     onClick: ()=>void;
     time: Date;
@@ -7,7 +7,7 @@ interface IStartButtonProps {
 }
 
 export function StartButton({ onClick, time, isStarted }: IStartButtonProps){
-    return <button onClick={()=>{
+    return <button className="start_button" onClick={()=>{
         onClick();
     }}>
         {
