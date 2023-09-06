@@ -7,7 +7,7 @@ export function App(){
     const [isStarted, setStarted] = useState(false);
     const [initialTime, setInitialTime] = useState(0);
     const [timerValue, setTimerValue] = useState(0);
-    const roundTime = 10000;
+    const roundTime = 1000;
     useEffect(()=>{
         if (!isStarted) return;
 
@@ -25,7 +25,7 @@ export function App(){
     }, [isStarted]);
 
     return <div className="app_wrapper">
-        <GameView isStarted={isStarted}></GameView>
+        <GameView isStarted={isStarted} initPosition={0}></GameView>
         <div className="app_bottom">
             <StartButton 
                 onClick={()=>{

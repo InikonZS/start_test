@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    --init-position: 0%;
 }
 
 .game_block1{
@@ -35,6 +36,10 @@
     height: 100px;
     background-color: #9f9;
     border-radius: 100%;
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    animation: round_ani 1s linear forwards;
 }
 
 @keyframes block1_ani{
@@ -44,5 +49,17 @@
 
     100%{
         transform: translateY(calc(100% - 50%));
+    }
+}
+
+@keyframes round_ani{
+    0%{
+        transform: translateY(calc(var(--init-position))) translateX(0);
+        left: 0;
+    }
+
+    100%{
+        transform: translateY(calc(-50%)) translateX(-100%);
+        left: 100%;
     }
 }
