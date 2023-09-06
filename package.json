@@ -1,0 +1,13 @@
+{
+  "name": "enterra",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "cd client && npm install",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npm run --prefix client start"
+  },
+  "author": "",
+  "license": "ISC"
+}
