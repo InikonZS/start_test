@@ -3,10 +3,9 @@ import "./game_view.css";
 
 interface IGameViewProps {
     isStarted: boolean;
-    initPosition: number;
 }
 
-export function GameView({ isStarted}:IGameViewProps){
+export function GameView({ isStarted }:IGameViewProps){
     const blockRef = useRef<HTMLDivElement>();
     const wrapperRef = useRef<HTMLDivElement>();
     const [initPosition, setInitPosition] = useState(0);
@@ -17,21 +16,17 @@ export function GameView({ isStarted}:IGameViewProps){
         const relTop = ((blockBounds.top - wrapperBounds.height / 2) / blockBounds.height * 100);
         console.log(wrapperBounds.height, blockBounds.top, relTop);
         setInitPosition(relTop);
-    },[isStarted]);
+    }, [isStarted]);
+
     return <div className="game_wrapper" ref={wrapperRef}>
-        {isStarted ? (
-             ''
-        ) : ''}
-        <>
-            <div className="game_block1" ref={blockRef}>
-                1
-            </div>
-            <div className="game_block2">
-                2
-            </div>
-            {isStarted && <div className="game_round" style={{'--init-position': initPosition + '%'}}>
-                r
-            </div>}
-        </>  
+        <div className="game_block1" ref={blockRef}>
+            1
+        </div>
+        <div className="game_block2">
+            2
+        </div>
+        {isStarted && <div className="game_round" style={{'--init-position': initPosition + '%'}}>
+            r
+        </div>}
     </div>
 }

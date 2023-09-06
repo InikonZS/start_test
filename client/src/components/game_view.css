@@ -5,7 +5,6 @@
     display: flex;
     align-items: center;
     position: relative;
-    --init-position: 0%;
 }
 
 .game_block1{
@@ -39,14 +38,16 @@
     position: absolute;
     transform: translateY(-50%);
     top: 50%;
-    animation: round_ani 1s linear forwards;
+    --init-position: 0%;
+    --ani-duration: 2s;
+    animation: round_ani linear forwards;
+    animation-duration: var(--ani-duration);
 }
 
 @keyframes block1_ani{
     0%{
         transform: translateY(calc(-100% - 50%));
     }
-
     100%{
         transform: translateY(calc(100% - 50%));
     }
@@ -54,12 +55,20 @@
 
 @keyframes round_ani{
     0%{
+        transform: translateY(calc(var(--init-position))) translateX(0) scale(0);
+        left: 0;
+    }
+    1%{
         transform: translateY(calc(var(--init-position))) translateX(0);
         left: 0;
     }
 
-    100%{
+    99%{
         transform: translateY(calc(-50%)) translateX(-100%);
+        left: 100%;
+    }
+    100%{
+        transform: translateY(calc(-50%)) translateX(-100%) scale(0);
         left: 100%;
     }
 }

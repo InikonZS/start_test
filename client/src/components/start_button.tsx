@@ -13,7 +13,7 @@ export function StartButton({ onClick, time, isStarted }: IStartButtonProps){
         {
         isStarted ? (
             <div>
-                {`${time.getUTCMinutes()} : ${time.getUTCSeconds()}`}
+                {time.getUTCMinutes() ? `${time.getUTCMinutes()} : ${time.getUTCSeconds()}` : `${time.getSeconds()}`}
             </div>
         ):(
             "start"
